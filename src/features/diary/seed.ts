@@ -6,7 +6,7 @@ const BASE = Date.UTC(2026, 10, 18, 9, 0, 0);
 export const SEED_ENTRIES: DiaryEntry[] = [
   {
     id: 'seed-1',
-    title: 'Started the Revyl demo',
+    title: 'Started the Revyl demo (fingerprint test)',
     body: 'Connected the repo, ran the first cloud build and watched the proof comment arrive.',
     mood: 'great',
     createdAt: BASE + 2 * DAY,
