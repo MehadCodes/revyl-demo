@@ -4,6 +4,10 @@ session:
     idle_timeout_seconds: 1800
 build:
     framework: expo
+    caches:
+        - key: javascript-dependencies
+          paths:
+            - node_modules
     profiles:
         development:
             ios:
@@ -23,6 +27,12 @@ build:
         preview:
             ios:
                 app_id: 4a695269-d0a4-4057-a9ee-6f2cdb6f1e1e
+                env:
+                    REVYL_USE_FINGERPRINT: "1"
+                caches:
+                    - key: cocoapods-downloads
+                      paths:
+                        - ~/Library/Caches/CocoaPods
                 setup_commands:
                     - pnpm install
                     - if [ ! -d ios ]; then pnpm exec expo prebuild --platform ios --no-install; fi
@@ -31,6 +41,14 @@ build:
                 output_path: ios/build/Build/Products/Release-iphonesimulator/*.app
             android:
                 app_id: 57e7eb38-4bea-41a2-8719-e644bbf983af
+                env:
+                    REVYL_USE_FINGERPRINT: "1"
+                caches:
+                    - key: android-dependencies
+                      paths:
+                        - ~/.gradle/caches/modules-*/files-*
+                        - ~/.gradle/caches/modules-*/metadata-*
+                        - ~/.gradle/wrapper
                 setup_commands:
                     - pnpm install
                     - if [ ! -d android ]; then pnpm exec expo prebuild --platform android --no-install; fi
