@@ -13,7 +13,7 @@ export const SEED_ENTRIES: DiaryEntry[] = [
   },
   {
     id: 'seed-2',
-    title: 'Build cache notes',
+    title: 'Build cache notes (third commit)',
     body: 'The second iOS build was much faster because the compile cache was warm.',
     mood: 'good',
     createdAt: BASE + DAY,
